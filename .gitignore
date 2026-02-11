@@ -17,7 +17,7 @@ build/
 .vscode/
 
 # Project Specific
-model/
+# model/ <- Commented out to allow committing models (files are < 100MB)
 frontend/.next/
 frontend/node_modules/
 backend/__pycache__/
