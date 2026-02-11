@@ -18,7 +18,7 @@ git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/stainViz.git
 git push -u origin main
 ```
-*Note: Ensure your `model/` directory is committed if you want the models included in the deployment (simplest method).*
+**CRITICAL:** We have un-ignored the `model/` directory. When you run `git add .`, it *will* include the `.pth` files (about 90MB total). This is intentional so Render can access them.
 
 ---
 
@@ -29,8 +29,10 @@ git push -u origin main
 4.  Configure the service:
     *   **Name**: `stainviz-backend`
     *   **Runtime**: **Docker**
-    *   **Region**: Pick one close to you (e.g., US East).
+    *   **Region**: Pick one close you.
     *   **Branch**: `main`
+    *   **Root Directory**: Leave blank (default `.`)
+    *   **Dockerfile Path**: `backend/Dockerfile` (CRITICAL: Set this or build will fail)
 5.  **Environment Variables**:
     *   Add `MODEL_DIR` = `/app/model` (This ensures the code looks in the right place, assuming you committed the `model/` folder).
 6.  Click **Create Web Service**.

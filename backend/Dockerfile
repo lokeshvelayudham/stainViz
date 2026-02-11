@@ -20,8 +20,11 @@ COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the backend code into the container
-# We assume the build context is the project root, so we copy backend/ -> /app/backend
 COPY backend/ ./backend/
+
+# Copy the model directory into the container
+COPY model/ ./model/
+
 
 # Expose port 8000
 EXPOSE 8000
