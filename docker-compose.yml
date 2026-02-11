@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: stainviz-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the model directory so we don't need to rebuild image to change weights
+      - ./model:/app/model
+      # Mount the source code for hot reloading (optional, good for dev)
+      - ./backend:/app/backend
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_DIR=/app/model
+    command: python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload

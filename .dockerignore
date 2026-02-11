@@ -1,0 +1,31 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.gitignore
+.mypy_cache
+.pytest_cache
+.hypotheses
+frontend/
+node_modules/
+model/
+# We ignore model/ because we will mount it as a volume or copy specifically if needed.
+# Since models are large, better not to copy them into the image build context every time if possible.
+# But for simplicity, if user wants a self-contained image, they should be copied.
+# However, for development, mounting is better. I will ignore them for context speed.
