@@ -24,7 +24,7 @@ coverage.xml
 .hypotheses
 frontend/
 node_modules/
-model/
+# model/
 # We ignore model/ because we will mount it as a volume or copy specifically if needed.
 # Since models are large, better not to copy them into the image build context every time if possible.
 # But for simplicity, if user wants a self-contained image, they should be copied.
