@@ -1,6 +1,7 @@
 import React from 'react';
-import { MessageSquarePlus, Clock, ChevronRight, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { MessageSquarePlus, Clock, ChevronRight, PanelLeftClose, PanelLeftOpen, Calendar } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface HistoryItem {
   id: string;
@@ -85,6 +86,22 @@ export function HistorySidebar({ history, onSelect, onNewChat, isOpen }: History
             ))
         )}
       </div>
+
+       {/* ISCT Link */}
+       <div className="p-2 border-t border-border/50">
+            <Link href="/" className={`
+                flex items-center gap-3 p-2 rounded-lg hover:bg-indigo-500/10 hover:text-indigo-400 transition-all group
+                ${isOpen ? 'justify-start' : 'justify-center'}
+            `}>
+                <Calendar className="w-5 h-5 text-muted-foreground group-hover:text-indigo-400" /> 
+                {isOpen && (
+                    <div className="flex flex-col text-left">
+                        <span className="text-xs font-semibold text-foreground">ISCT 2026</span>
+                        <span className="text-[10px] text-muted-foreground">Dublin Conference</span>
+                    </div>
+                )}
+            </Link>
+        </div>
 
        <div className={`p-4 text-[10px] text-center text-muted-foreground/50 ${!isOpen && 'hidden'}`}>
         StainViz Gen 1.0

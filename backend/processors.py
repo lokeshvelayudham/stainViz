@@ -101,6 +101,14 @@ def process_image(image_bytes: bytes, model_inference, direction: str = 'AtoB') 
     """
     # 1. Read Image
     image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+    
+    # Resize if too large (Azure B1 has 230s timeout)
+    MAX_DIM = 1500
+    if max(image.size) > MAX_DIM:
+        scale = MAX_DIM / max(image.size)
+        new_size = (int(image.size[0] * scale), int(image.size[1] * scale))
+        image = image.resize(new_size, Image.Resampling.LANCZOS)
+        
     orig_w, orig_h = image.size
     
     # 2. Pad Image
@@ -111,7 +119,7 @@ def process_image(image_bytes: bytes, model_inference, direction: str = 'AtoB') 
     
     # 4. Inference
     # Process in batches to avoid OOM
-    BATCH_SIZE = 8
+    BATCH_SIZE = 1 # Reduced for stability on B1 plan
     output_patches = []
     
     # Pre-calculate transform once

@@ -1,0 +1,478 @@
+2026-02-12T19:39:32.1838002Z Container start method called.
+2026-02-12T19:39:32.2430068Z Establishing network.
+2026-02-12T19:39:32.2439435Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:41:09.6503918Z Image stainvizacr9655.azurecr.io/stainviz-backend:latest is pulled from registry stainvizacr9655.azurecr.io
+2026-02-12T19:41:09.7039329Z Container is starting.
+2026-02-12T19:41:09.7131078Z Establishing user namespace if not established already.
+2026-02-12T19:41:09.7134913Z Establishing network if not established already.
+2026-02-12T19:41:09.7139055Z Mounting volumes.
+2026-02-12T19:41:09.7324440Z Nested mountpoint volatile/logs
+2026-02-12T19:41:09.7626356Z Nested mountpoint 
+2026-02-12T19:41:09.9230401Z Creating container.
+2026-02-12T19:41:09.9450563Z Creating pipes for streaming container io.
+2026-02-12T19:41:09.9642798Z Creating stdout named pipe at /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stdout_ff77d31cff47458c92fc7476ee967dcc.
+2026-02-12T19:41:09.9732334Z Successfully created stdout named pipe at: /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stdout_ff77d31cff47458c92fc7476ee967dcc.
+2026-02-12T19:41:09.9752263Z Opening named pipe /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stdout_ff77d31cff47458c92fc7476ee967dcc for reading in non-blocking mode.
+2026-02-12T19:41:09.9761226Z Successfully opened named pipe: /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stdout_ff77d31cff47458c92fc7476ee967dcc.
+2026-02-12T19:41:09.9860786Z Successfully removed non-blocking flag from /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stdout_ff77d31cff47458c92fc7476ee967dcc.
+2026-02-12T19:41:09.9943427Z Creating stderr named pipe at /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stderr_0e7ca27455b34a9081a5719d7af4883e.
+2026-02-12T19:41:09.9946699Z Successfully created stderr named pipe at: /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stderr_0e7ca27455b34a9081a5719d7af4883e.
+2026-02-12T19:41:09.9949577Z Opening named pipe /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stderr_0e7ca27455b34a9081a5719d7af4883e for reading in non-blocking mode.
+2026-02-12T19:41:09.9950710Z Successfully opened named pipe: /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stderr_0e7ca27455b34a9081a5719d7af4883e.
+2026-02-12T19:41:09.9951647Z Successfully removed non-blocking flag from /podr/container/pipe/9d17e87ea921_stainviz-app-9655/stderr_0e7ca27455b34a9081a5719d7af4883e.
+2026-02-12T19:41:10.0059916Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:41:11.4505853Z Starting container: 9d17e87ea921_stainviz-app-9655.
+2026-02-12T19:41:11.7184281Z Starting watchers and probes.
+2026-02-12T19:41:11.7661737Z Starting metrics collection.
+2026-02-12T19:41:11.7777556Z Container is running.
+2026-02-12T19:41:11.9271372Z Container start method finished after 99734 ms.
+2026-02-12T19:41:12.2575219Z Container has finished running with exit code: 255.
+2026-02-12T19:41:12.2758173Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:41:12.3070847Z Stop and delete container. Retry count = 0
+2026-02-12T19:41:12.3158806Z Stopping container: 9d17e87ea921_stainviz-app-9655.
+2026-02-12T19:41:12.5894004Z Deleting container: 9d17e87ea921_stainviz-app-9655. Retry count = 0
+2026-02-12T19:41:12.9705683Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:41:12.9742912Z Container is terminated. Total time elapsed: 696 ms.
+2026-02-12T19:41:12.9824723Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:41:13.0493852Z Site startup probe failed after 1.0269341 seconds.
+2026-02-12T19:41:13.2781813Z Failed to start site. Revert by stopping site.
+2026-02-12T19:41:13.3271639Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:41:17.3326691Z Container start method called.
+2026-02-12T19:41:17.3524750Z Establishing network.
+2026-02-12T19:41:17.3534323Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:41:17.9041379Z Container is starting.
+2026-02-12T19:41:17.9056047Z Establishing user namespace if not established already.
+2026-02-12T19:41:17.9061638Z Establishing network if not established already.
+2026-02-12T19:41:17.9063410Z Mounting volumes.
+2026-02-12T19:41:17.9066407Z Nested mountpoint volatile/logs
+2026-02-12T19:41:17.9244718Z Nested mountpoint 
+2026-02-12T19:41:18.1067429Z Creating container.
+2026-02-12T19:41:18.1074860Z Creating pipes for streaming container io.
+2026-02-12T19:41:18.1075794Z Creating stdout named pipe at /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stdout_13ee10a9e9ce451fb6682fb1cd045a1a.
+2026-02-12T19:41:18.1077664Z Successfully created stdout named pipe at: /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stdout_13ee10a9e9ce451fb6682fb1cd045a1a.
+2026-02-12T19:41:18.1078486Z Opening named pipe /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stdout_13ee10a9e9ce451fb6682fb1cd045a1a for reading in non-blocking mode.
+2026-02-12T19:41:18.1079404Z Successfully opened named pipe: /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stdout_13ee10a9e9ce451fb6682fb1cd045a1a.
+2026-02-12T19:41:18.1080168Z Successfully removed non-blocking flag from /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stdout_13ee10a9e9ce451fb6682fb1cd045a1a.
+2026-02-12T19:41:18.1081150Z Creating stderr named pipe at /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stderr_744dd8c07cd5477aabc3f18183f9f825.
+2026-02-12T19:41:18.1257079Z Successfully created stderr named pipe at: /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stderr_744dd8c07cd5477aabc3f18183f9f825.
+2026-02-12T19:41:18.1272578Z Opening named pipe /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stderr_744dd8c07cd5477aabc3f18183f9f825 for reading in non-blocking mode.
+2026-02-12T19:41:18.1455725Z Successfully opened named pipe: /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stderr_744dd8c07cd5477aabc3f18183f9f825.
+2026-02-12T19:41:18.1469505Z Successfully removed non-blocking flag from /podr/container/pipe/7e994a3ea06d_stainviz-app-9655/stderr_744dd8c07cd5477aabc3f18183f9f825.
+2026-02-12T19:41:18.1475295Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:41:19.2150543Z Starting container: 7e994a3ea06d_stainviz-app-9655.
+2026-02-12T19:41:19.3833629Z Starting watchers and probes.
+2026-02-12T19:41:19.3843261Z Starting metrics collection.
+2026-02-12T19:41:19.3845883Z Container is running.
+2026-02-12T19:41:19.4448900Z Container start method finished after 2111 ms.
+2026-02-12T19:41:19.7764216Z Container has finished running with exit code: 255.
+2026-02-12T19:41:19.7775348Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:41:19.7784543Z Stop and delete container. Retry count = 0
+2026-02-12T19:41:19.7983904Z Stopping container: 7e994a3ea06d_stainviz-app-9655.
+2026-02-12T19:41:19.8773087Z Deleting container: 7e994a3ea06d_stainviz-app-9655. Retry count = 0
+2026-02-12T19:41:20.0677517Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:41:20.0687399Z Container is terminated. Total time elapsed: 290 ms.
+2026-02-12T19:41:20.0689698Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:41:20.0709337Z Site startup probe failed after 0.5938764 seconds.
+2026-02-12T19:41:20.1982788Z Failed to start site. Revert by stopping site.
+2026-02-12T19:41:20.2001079Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:41:20.6952191Z Site: stainviz-app-9655 will be blocked for 1 minutes till 02/12/2026 19:42:20
+2026-02-12T19:41:21.0880218Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:25.9028654Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:31.0098830Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:36.2182140Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:41.3556967Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:46.5007673Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:51.6180921Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:41:56.8320098Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:02.3288911Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:08.8701996Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:14.3098773Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:19.8620840Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:20.7763458Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:42:27.5363723Z Container start method called.
+2026-02-12T19:42:27.5453971Z Establishing network.
+2026-02-12T19:42:27.5458194Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:42:28.1720559Z Container is starting.
+2026-02-12T19:42:28.2002071Z Establishing user namespace if not established already.
+2026-02-12T19:42:28.2016275Z Establishing network if not established already.
+2026-02-12T19:42:28.2095049Z Mounting volumes.
+2026-02-12T19:42:28.2103881Z Nested mountpoint volatile/logs
+2026-02-12T19:42:28.2502365Z Nested mountpoint 
+2026-02-12T19:42:28.4130395Z Creating container.
+2026-02-12T19:42:28.4217209Z Creating pipes for streaming container io.
+2026-02-12T19:42:28.4220961Z Creating stdout named pipe at /podr/container/pipe/52f0ba574033_stainviz-app-9655/stdout_c4ba9ca4aa624e68b8cacfd9c8cf814b.
+2026-02-12T19:42:28.4223932Z Successfully created stdout named pipe at: /podr/container/pipe/52f0ba574033_stainviz-app-9655/stdout_c4ba9ca4aa624e68b8cacfd9c8cf814b.
+2026-02-12T19:42:28.4227146Z Opening named pipe /podr/container/pipe/52f0ba574033_stainviz-app-9655/stdout_c4ba9ca4aa624e68b8cacfd9c8cf814b for reading in non-blocking mode.
+2026-02-12T19:42:28.4229796Z Successfully opened named pipe: /podr/container/pipe/52f0ba574033_stainviz-app-9655/stdout_c4ba9ca4aa624e68b8cacfd9c8cf814b.
+2026-02-12T19:42:28.4713496Z Successfully removed non-blocking flag from /podr/container/pipe/52f0ba574033_stainviz-app-9655/stdout_c4ba9ca4aa624e68b8cacfd9c8cf814b.
+2026-02-12T19:42:28.4716696Z Creating stderr named pipe at /podr/container/pipe/52f0ba574033_stainviz-app-9655/stderr_9343e06900844e63a6686db6a0566a99.
+2026-02-12T19:42:28.4735118Z Successfully created stderr named pipe at: /podr/container/pipe/52f0ba574033_stainviz-app-9655/stderr_9343e06900844e63a6686db6a0566a99.
+2026-02-12T19:42:28.5037174Z Opening named pipe /podr/container/pipe/52f0ba574033_stainviz-app-9655/stderr_9343e06900844e63a6686db6a0566a99 for reading in non-blocking mode.
+2026-02-12T19:42:28.5116732Z Successfully opened named pipe: /podr/container/pipe/52f0ba574033_stainviz-app-9655/stderr_9343e06900844e63a6686db6a0566a99.
+2026-02-12T19:42:28.5119458Z Successfully removed non-blocking flag from /podr/container/pipe/52f0ba574033_stainviz-app-9655/stderr_9343e06900844e63a6686db6a0566a99.
+2026-02-12T19:42:28.5121193Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:42:29.9973989Z Starting container: 52f0ba574033_stainviz-app-9655.
+2026-02-12T19:42:30.0927334Z Starting watchers and probes.
+2026-02-12T19:42:30.0932815Z Starting metrics collection.
+2026-02-12T19:42:30.0934245Z Container is running.
+2026-02-12T19:42:30.1339498Z Container start method finished after 2597 ms.
+2026-02-12T19:42:30.2869467Z Container has finished running with exit code: 255.
+2026-02-12T19:42:30.3041998Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:42:30.3050441Z Stop and delete container. Retry count = 0
+2026-02-12T19:42:30.3060061Z Stopping container: 52f0ba574033_stainviz-app-9655.
+2026-02-12T19:42:30.4465871Z Deleting container: 52f0ba574033_stainviz-app-9655. Retry count = 0
+2026-02-12T19:42:30.6272082Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:42:30.6285642Z Container is terminated. Total time elapsed: 322 ms.
+2026-02-12T19:42:30.6369256Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:42:30.6480137Z Site startup probe failed after 0.5131644 seconds.
+2026-02-12T19:42:30.8094069Z Failed to start site. Revert by stopping site.
+2026-02-12T19:42:30.8287062Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:42:32.2958583Z Site: stainviz-app-9655 will be blocked for 1 minutes till 02/12/2026 19:43:32
+2026-02-12T19:42:37.5416018Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:42.7148485Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:47.8728670Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:53.0785472Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:42:58.2923950Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:03.4010658Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:08.5274937Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:13.7279728Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:18.9254913Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:24.1143177Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:29.3212354Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:32.2959253Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:43:36.0154274Z Container start method called.
+2026-02-12T19:43:36.0155915Z Establishing network.
+2026-02-12T19:43:36.0156846Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:43:36.3571161Z Container is starting.
+2026-02-12T19:43:36.3584378Z Establishing user namespace if not established already.
+2026-02-12T19:43:36.3679467Z Establishing network if not established already.
+2026-02-12T19:43:36.3689191Z Mounting volumes.
+2026-02-12T19:43:36.3769722Z Nested mountpoint volatile/logs
+2026-02-12T19:43:36.3973693Z Nested mountpoint 
+2026-02-12T19:43:36.4379382Z Creating container.
+2026-02-12T19:43:36.4465920Z Creating pipes for streaming container io.
+2026-02-12T19:43:36.4483098Z Creating stdout named pipe at /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stdout_63ccceab1dee43499ed51936213113a6.
+2026-02-12T19:43:36.4493983Z Successfully created stdout named pipe at: /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stdout_63ccceab1dee43499ed51936213113a6.
+2026-02-12T19:43:36.4568802Z Opening named pipe /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stdout_63ccceab1dee43499ed51936213113a6 for reading in non-blocking mode.
+2026-02-12T19:43:36.4575072Z Successfully opened named pipe: /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stdout_63ccceab1dee43499ed51936213113a6.
+2026-02-12T19:43:36.4578740Z Successfully removed non-blocking flag from /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stdout_63ccceab1dee43499ed51936213113a6.
+2026-02-12T19:43:36.4584881Z Creating stderr named pipe at /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stderr_dbee6f8189b14309ac522726713ee6e1.
+2026-02-12T19:43:36.4587850Z Successfully created stderr named pipe at: /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stderr_dbee6f8189b14309ac522726713ee6e1.
+2026-02-12T19:43:36.4592814Z Opening named pipe /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stderr_dbee6f8189b14309ac522726713ee6e1 for reading in non-blocking mode.
+2026-02-12T19:43:36.4674128Z Successfully opened named pipe: /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stderr_dbee6f8189b14309ac522726713ee6e1.
+2026-02-12T19:43:36.4677122Z Successfully removed non-blocking flag from /podr/container/pipe/b2ae260c9f9b_stainviz-app-9655/stderr_dbee6f8189b14309ac522726713ee6e1.
+2026-02-12T19:43:36.4678366Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:43:37.9685493Z Starting container: b2ae260c9f9b_stainviz-app-9655.
+2026-02-12T19:43:38.0690726Z Starting watchers and probes.
+2026-02-12T19:43:38.0902427Z Starting metrics collection.
+2026-02-12T19:43:38.0977087Z Container is running.
+2026-02-12T19:43:38.2010100Z Container start method finished after 2185 ms.
+2026-02-12T19:43:38.2116271Z Container has finished running with exit code: 255.
+2026-02-12T19:43:38.2188329Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:43:38.2193889Z Stop and delete container. Retry count = 0
+2026-02-12T19:43:38.2196563Z Stopping container: b2ae260c9f9b_stainviz-app-9655.
+2026-02-12T19:43:38.3093832Z Deleting container: b2ae260c9f9b_stainviz-app-9655. Retry count = 0
+2026-02-12T19:43:38.4935512Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:43:38.4944382Z Container is terminated. Total time elapsed: 274 ms.
+2026-02-12T19:43:38.4947206Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:43:38.5216743Z Site startup probe failed after 0.3031383 seconds.
+2026-02-12T19:43:38.6350711Z Failed to start site. Revert by stopping site.
+2026-02-12T19:43:38.6628948Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:43:39.1439480Z Site: stainviz-app-9655 will be blocked for 2 minutes till 02/12/2026 19:45:39
+2026-02-12T19:43:44.4966368Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:49.6790368Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:43:54.8480591Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:00.0343561Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:05.2494532Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:10.4037815Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:15.7083295Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:20.8687231Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:26.0117206Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:31.1968990Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:36.8820652Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:42.0207017Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:47.1444999Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:52.3030206Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:44:57.4786371Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:02.5637913Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:07.8090783Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:13.1493570Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:18.3112358Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:23.4963329Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:28.6693640Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:33.7575691Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:39.4438647Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:45:41.0921554Z Container start method called.
+2026-02-12T19:45:41.0926476Z Establishing network.
+2026-02-12T19:45:41.0933141Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:45:41.3060763Z Container is starting.
+2026-02-12T19:45:41.3069377Z Establishing user namespace if not established already.
+2026-02-12T19:45:41.3073829Z Establishing network if not established already.
+2026-02-12T19:45:41.3168130Z Mounting volumes.
+2026-02-12T19:45:41.3170429Z Nested mountpoint volatile/logs
+2026-02-12T19:45:41.3354506Z Nested mountpoint 
+2026-02-12T19:45:41.3569048Z Creating container.
+2026-02-12T19:45:41.3751632Z Creating pipes for streaming container io.
+2026-02-12T19:45:41.3770874Z Creating stdout named pipe at /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stdout_e4a9559b1d7f425ba7fc4901aef98a9d.
+2026-02-12T19:45:41.3777597Z Successfully created stdout named pipe at: /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stdout_e4a9559b1d7f425ba7fc4901aef98a9d.
+2026-02-12T19:45:41.3871500Z Opening named pipe /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stdout_e4a9559b1d7f425ba7fc4901aef98a9d for reading in non-blocking mode.
+2026-02-12T19:45:41.3873513Z Successfully opened named pipe: /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stdout_e4a9559b1d7f425ba7fc4901aef98a9d.
+2026-02-12T19:45:41.3874671Z Successfully removed non-blocking flag from /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stdout_e4a9559b1d7f425ba7fc4901aef98a9d.
+2026-02-12T19:45:41.3875902Z Creating stderr named pipe at /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stderr_751f0b1844e845bc9843c3d1653d7fea.
+2026-02-12T19:45:41.3877665Z Successfully created stderr named pipe at: /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stderr_751f0b1844e845bc9843c3d1653d7fea.
+2026-02-12T19:45:41.3878670Z Opening named pipe /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stderr_751f0b1844e845bc9843c3d1653d7fea for reading in non-blocking mode.
+2026-02-12T19:45:41.3954246Z Successfully opened named pipe: /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stderr_751f0b1844e845bc9843c3d1653d7fea.
+2026-02-12T19:45:41.3958750Z Successfully removed non-blocking flag from /podr/container/pipe/93f0a1b85d97_stainviz-app-9655/stderr_751f0b1844e845bc9843c3d1653d7fea.
+2026-02-12T19:45:41.3965315Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:45:42.0917652Z Starting container: 93f0a1b85d97_stainviz-app-9655.
+2026-02-12T19:45:42.2318480Z Starting watchers and probes.
+2026-02-12T19:45:42.2636812Z Starting metrics collection.
+2026-02-12T19:45:42.2814570Z Container is running.
+2026-02-12T19:45:42.4147474Z Container start method finished after 1242 ms.
+2026-02-12T19:45:42.4834129Z Container has finished running with exit code: 255.
+2026-02-12T19:45:42.4844428Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:45:42.5047691Z Stop and delete container. Retry count = 0
+2026-02-12T19:45:42.5746939Z Stopping container: 93f0a1b85d97_stainviz-app-9655.
+2026-02-12T19:45:42.6458125Z Deleting container: 93f0a1b85d97_stainviz-app-9655. Retry count = 0
+2026-02-12T19:45:42.9059053Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:45:42.9068634Z Container is terminated. Total time elapsed: 421 ms.
+2026-02-12T19:45:42.9076282Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:45:42.9155747Z Site startup probe failed after 0.4121718 seconds.
+2026-02-12T19:45:43.0455514Z Failed to start site. Revert by stopping site.
+2026-02-12T19:45:43.0574405Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:45:43.5628370Z Site: stainviz-app-9655 will be blocked for 2 minutes till 02/12/2026 19:47:43
+2026-02-12T19:45:48.8219321Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:53.8935258Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:45:59.0311613Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:04.1495906Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:09.3849377Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:14.5659215Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:19.7122615Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:24.8214499Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:30.0509710Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:35.1387637Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:40.7691100Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:45.9358971Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:50.9839643Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:46:56.1052830Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:01.2172579Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:06.3769646Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:11.5671782Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:16.7662700Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:21.9689487Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:27.0818809Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:32.2224989Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:37.3246838Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:42.4427574Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:47:43.5604810Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:47:49.8152864Z Container start method called.
+2026-02-12T19:47:49.8328335Z Establishing network.
+2026-02-12T19:47:49.8336162Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:47:50.1178238Z Container is starting.
+2026-02-12T19:47:50.1197576Z Establishing user namespace if not established already.
+2026-02-12T19:47:50.1203461Z Establishing network if not established already.
+2026-02-12T19:47:50.1275919Z Mounting volumes.
+2026-02-12T19:47:50.1280949Z Nested mountpoint volatile/logs
+2026-02-12T19:47:50.1480090Z Nested mountpoint 
+2026-02-12T19:47:50.1785904Z Creating container.
+2026-02-12T19:47:50.1788662Z Creating pipes for streaming container io.
+2026-02-12T19:47:50.1793488Z Creating stdout named pipe at /podr/container/pipe/56d383911130_stainviz-app-9655/stdout_3dfce5e8029b4ffa8e2ae4240fef7e3b.
+2026-02-12T19:47:50.1805664Z Successfully created stdout named pipe at: /podr/container/pipe/56d383911130_stainviz-app-9655/stdout_3dfce5e8029b4ffa8e2ae4240fef7e3b.
+2026-02-12T19:47:50.1876172Z Opening named pipe /podr/container/pipe/56d383911130_stainviz-app-9655/stdout_3dfce5e8029b4ffa8e2ae4240fef7e3b for reading in non-blocking mode.
+2026-02-12T19:47:50.1879560Z Successfully opened named pipe: /podr/container/pipe/56d383911130_stainviz-app-9655/stdout_3dfce5e8029b4ffa8e2ae4240fef7e3b.
+2026-02-12T19:47:50.1880772Z Successfully removed non-blocking flag from /podr/container/pipe/56d383911130_stainviz-app-9655/stdout_3dfce5e8029b4ffa8e2ae4240fef7e3b.
+2026-02-12T19:47:50.1882074Z Creating stderr named pipe at /podr/container/pipe/56d383911130_stainviz-app-9655/stderr_6cef84700b3742d4a0ff73d182a405b2.
+2026-02-12T19:47:50.1883818Z Successfully created stderr named pipe at: /podr/container/pipe/56d383911130_stainviz-app-9655/stderr_6cef84700b3742d4a0ff73d182a405b2.
+2026-02-12T19:47:50.1884849Z Opening named pipe /podr/container/pipe/56d383911130_stainviz-app-9655/stderr_6cef84700b3742d4a0ff73d182a405b2 for reading in non-blocking mode.
+2026-02-12T19:47:50.1886238Z Successfully opened named pipe: /podr/container/pipe/56d383911130_stainviz-app-9655/stderr_6cef84700b3742d4a0ff73d182a405b2.
+2026-02-12T19:47:50.1887203Z Successfully removed non-blocking flag from /podr/container/pipe/56d383911130_stainviz-app-9655/stderr_6cef84700b3742d4a0ff73d182a405b2.
+2026-02-12T19:47:50.1888424Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:47:50.7653844Z Starting container: 56d383911130_stainviz-app-9655.
+2026-02-12T19:47:50.9036558Z Starting watchers and probes.
+2026-02-12T19:47:50.9043608Z Starting metrics collection.
+2026-02-12T19:47:50.9048641Z Container is running.
+2026-02-12T19:47:50.9250063Z Container start method finished after 1101 ms.
+2026-02-12T19:47:51.0648399Z Container has finished running with exit code: 255.
+2026-02-12T19:47:51.0663789Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:47:51.0738240Z Stop and delete container. Retry count = 0
+2026-02-12T19:47:51.0745478Z Stopping container: 56d383911130_stainviz-app-9655.
+2026-02-12T19:47:51.2790078Z Deleting container: 56d383911130_stainviz-app-9655. Retry count = 0
+2026-02-12T19:47:51.4913832Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:47:51.5004951Z Container is terminated. Total time elapsed: 424 ms.
+2026-02-12T19:47:51.5011283Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:47:51.5109008Z Site startup probe failed after 0.5542897 seconds.
+2026-02-12T19:47:51.6318567Z Failed to start site. Revert by stopping site.
+2026-02-12T19:47:51.6398353Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:47:52.1040793Z Site: stainviz-app-9655 will be blocked for 2 minutes till 02/12/2026 19:49:52
+2026-02-12T19:47:57.2959256Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:03.1245248Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:08.2283878Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:13.3495101Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:18.5057902Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:23.6546373Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:28.8260201Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:33.9355904Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:39.1323534Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:44.2249407Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:49.4639428Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:54.6555526Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:48:59.8693031Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:49:04.9295270Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:49:09.9898763Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:49:15.0676897Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:49:20.2072568Z Start site prohibitted because the site is being blocked.
+2026-02-12T19:49:52.1053546Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:50:07.9485146Z Container start method called.
+2026-02-12T19:50:07.9494575Z Establishing network.
+2026-02-12T19:50:07.9496072Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:50:08.3545307Z Container is starting.
+2026-02-12T19:50:08.3554471Z Establishing user namespace if not established already.
+2026-02-12T19:50:08.3555770Z Establishing network if not established already.
+2026-02-12T19:50:08.3557123Z Mounting volumes.
+2026-02-12T19:50:08.3567266Z Nested mountpoint volatile/logs
+2026-02-12T19:50:08.3874289Z Nested mountpoint 
+2026-02-12T19:50:08.4173985Z Creating container.
+2026-02-12T19:50:08.4247777Z Creating pipes for streaming container io.
+2026-02-12T19:50:08.4249783Z Creating stdout named pipe at /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stdout_8c6da9b9eb7f4a7c9fcf90e6602249db.
+2026-02-12T19:50:08.4252482Z Successfully created stdout named pipe at: /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stdout_8c6da9b9eb7f4a7c9fcf90e6602249db.
+2026-02-12T19:50:08.4253629Z Opening named pipe /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stdout_8c6da9b9eb7f4a7c9fcf90e6602249db for reading in non-blocking mode.
+2026-02-12T19:50:08.4255942Z Successfully opened named pipe: /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stdout_8c6da9b9eb7f4a7c9fcf90e6602249db.
+2026-02-12T19:50:08.4257093Z Successfully removed non-blocking flag from /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stdout_8c6da9b9eb7f4a7c9fcf90e6602249db.
+2026-02-12T19:50:08.4258212Z Creating stderr named pipe at /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stderr_a62d897881b04708bf7c0848aded8dbf.
+2026-02-12T19:50:08.4259752Z Successfully created stderr named pipe at: /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stderr_a62d897881b04708bf7c0848aded8dbf.
+2026-02-12T19:50:08.4260798Z Opening named pipe /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stderr_a62d897881b04708bf7c0848aded8dbf for reading in non-blocking mode.
+2026-02-12T19:50:08.4262022Z Successfully opened named pipe: /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stderr_a62d897881b04708bf7c0848aded8dbf.
+2026-02-12T19:50:08.4262994Z Successfully removed non-blocking flag from /podr/container/pipe/42997a1d78a4_stainviz-app-9655/stderr_a62d897881b04708bf7c0848aded8dbf.
+2026-02-12T19:50:08.4264257Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:50:08.9530205Z Starting container: 42997a1d78a4_stainviz-app-9655.
+2026-02-12T19:50:09.0932710Z Starting watchers and probes.
+2026-02-12T19:50:09.0946695Z Starting metrics collection.
+2026-02-12T19:50:09.0952065Z Container is running.
+2026-02-12T19:50:09.1747285Z Container start method finished after 1225 ms.
+2026-02-12T19:50:09.3242958Z Container has finished running with exit code: 255.
+2026-02-12T19:50:09.3246256Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:50:09.3262873Z Stop and delete container. Retry count = 0
+2026-02-12T19:50:09.3268957Z Stopping container: 42997a1d78a4_stainviz-app-9655.
+2026-02-12T19:50:09.5354690Z Deleting container: 42997a1d78a4_stainviz-app-9655. Retry count = 0
+2026-02-12T19:50:09.8588879Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:50:09.8679248Z Container is terminated. Total time elapsed: 542 ms.
+2026-02-12T19:50:09.8776315Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:50:09.8890412Z Site startup probe failed after 0.6849546 seconds.
+2026-02-12T19:50:10.0784796Z Failed to start site. Revert by stopping site.
+2026-02-12T19:50:10.0805488Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:54:32.7928131Z Container start method called.
+2026-02-12T19:54:32.8107507Z Establishing network.
+2026-02-12T19:54:32.8108943Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:54:33.2483855Z Container is starting.
+2026-02-12T19:54:33.2592845Z Establishing user namespace if not established already.
+2026-02-12T19:54:33.2674816Z Establishing network if not established already.
+2026-02-12T19:54:33.2686448Z Mounting volumes.
+2026-02-12T19:54:33.2776161Z Nested mountpoint volatile/logs
+2026-02-12T19:54:33.2892638Z Nested mountpoint 
+2026-02-12T19:54:33.5212783Z Creating container.
+2026-02-12T19:54:33.5218843Z Creating pipes for streaming container io.
+2026-02-12T19:54:33.5396249Z Creating stdout named pipe at /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stdout_3b5e3e89103045d4a6910411c173bda7.
+2026-02-12T19:54:33.5399630Z Successfully created stdout named pipe at: /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stdout_3b5e3e89103045d4a6910411c173bda7.
+2026-02-12T19:54:33.5405483Z Opening named pipe /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stdout_3b5e3e89103045d4a6910411c173bda7 for reading in non-blocking mode.
+2026-02-12T19:54:33.5407781Z Successfully opened named pipe: /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stdout_3b5e3e89103045d4a6910411c173bda7.
+2026-02-12T19:54:33.5408972Z Successfully removed non-blocking flag from /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stdout_3b5e3e89103045d4a6910411c173bda7.
+2026-02-12T19:54:33.5410164Z Creating stderr named pipe at /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stderr_e49703033070405eb9016ad87a90639b.
+2026-02-12T19:54:33.5415764Z Successfully created stderr named pipe at: /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stderr_e49703033070405eb9016ad87a90639b.
+2026-02-12T19:54:33.5417163Z Opening named pipe /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stderr_e49703033070405eb9016ad87a90639b for reading in non-blocking mode.
+2026-02-12T19:54:33.5418447Z Successfully opened named pipe: /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stderr_e49703033070405eb9016ad87a90639b.
+2026-02-12T19:54:33.5419465Z Successfully removed non-blocking flag from /podr/container/pipe/f737b37a4be7_stainviz-app-9655/stderr_e49703033070405eb9016ad87a90639b.
+2026-02-12T19:54:33.5591835Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:54:33.9942044Z Starting container: f737b37a4be7_stainviz-app-9655.
+2026-02-12T19:54:34.1158611Z Starting watchers and probes.
+2026-02-12T19:54:34.1266936Z Starting metrics collection.
+2026-02-12T19:54:34.1269700Z Container is running.
+2026-02-12T19:54:34.2377249Z Container start method finished after 1435 ms.
+2026-02-12T19:54:34.2672489Z Container has finished running with exit code: 255.
+2026-02-12T19:54:34.2674771Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:54:34.2677732Z Stop and delete container. Retry count = 0
+2026-02-12T19:54:34.2678523Z Stopping container: f737b37a4be7_stainviz-app-9655.
+2026-02-12T19:54:34.5184491Z Deleting container: f737b37a4be7_stainviz-app-9655. Retry count = 0
+2026-02-12T19:54:34.8719484Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:54:34.8721192Z Container is terminated. Total time elapsed: 604 ms.
+2026-02-12T19:54:34.8722146Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:54:34.9210106Z Site startup probe failed after 0.6345459 seconds.
+2026-02-12T19:54:35.1907836Z Failed to start site. Revert by stopping site.
+2026-02-12T19:54:35.1924367Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:54:51.3742091Z Container start method called.
+2026-02-12T19:54:51.3743781Z Establishing network.
+2026-02-12T19:54:51.3752517Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:54:52.0064016Z Container is starting.
+2026-02-12T19:54:52.0070198Z Establishing user namespace if not established already.
+2026-02-12T19:54:52.0073801Z Establishing network if not established already.
+2026-02-12T19:54:52.0075268Z Mounting volumes.
+2026-02-12T19:54:52.0077133Z Nested mountpoint volatile/logs
+2026-02-12T19:54:52.0561162Z Nested mountpoint 
+2026-02-12T19:54:52.2790184Z Creating container.
+2026-02-12T19:54:52.2792257Z Creating pipes for streaming container io.
+2026-02-12T19:54:52.2793168Z Creating stdout named pipe at /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stdout_bd744861a2f041688601f1ed84bcb643.
+2026-02-12T19:54:52.2795010Z Successfully created stdout named pipe at: /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stdout_bd744861a2f041688601f1ed84bcb643.
+2026-02-12T19:54:52.2795800Z Opening named pipe /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stdout_bd744861a2f041688601f1ed84bcb643 for reading in non-blocking mode.
+2026-02-12T19:54:52.2796708Z Successfully opened named pipe: /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stdout_bd744861a2f041688601f1ed84bcb643.
+2026-02-12T19:54:52.2797392Z Successfully removed non-blocking flag from /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stdout_bd744861a2f041688601f1ed84bcb643.
+2026-02-12T19:54:52.2798195Z Creating stderr named pipe at /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stderr_cf70a0a8ec974ce6afb158daecb81ee7.
+2026-02-12T19:54:52.2880971Z Successfully created stderr named pipe at: /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stderr_cf70a0a8ec974ce6afb158daecb81ee7.
+2026-02-12T19:54:52.2883195Z Opening named pipe /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stderr_cf70a0a8ec974ce6afb158daecb81ee7 for reading in non-blocking mode.
+2026-02-12T19:54:52.2884454Z Successfully opened named pipe: /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stderr_cf70a0a8ec974ce6afb158daecb81ee7.
+2026-02-12T19:54:52.2885214Z Successfully removed non-blocking flag from /podr/container/pipe/4949e64edd2b_stainviz-app-9655/stderr_cf70a0a8ec974ce6afb158daecb81ee7.
+2026-02-12T19:54:52.2886250Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:54:53.4792660Z Starting container: 4949e64edd2b_stainviz-app-9655.
+2026-02-12T19:54:53.7202295Z Starting watchers and probes.
+2026-02-12T19:54:53.7518984Z Starting metrics collection.
+2026-02-12T19:54:53.9221167Z Container is running.
+2026-02-12T19:54:54.0823685Z Container start method finished after 2708 ms.
+2026-02-12T19:54:54.1337623Z Container has finished running with exit code: 255.
+2026-02-12T19:54:54.1338970Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:54:54.1429381Z Stop and delete container. Retry count = 0
+2026-02-12T19:54:54.1441086Z Stopping container: 4949e64edd2b_stainviz-app-9655.
+2026-02-12T19:54:54.5043146Z Deleting container: 4949e64edd2b_stainviz-app-9655. Retry count = 0
+2026-02-12T19:54:55.1899017Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:54:55.1906624Z Container is terminated. Total time elapsed: 1056 ms.
+2026-02-12T19:54:55.1909894Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:54:55.2396152Z Site startup probe failed after 1.1370666 seconds.
+2026-02-12T19:54:56.5477301Z Failed to start site. Revert by stopping site.
+2026-02-12T19:54:56.5585174Z Site: stainviz-app-9655 stopped.
+2026-02-12T19:54:57.6829613Z Site: stainviz-app-9655 will be blocked for 1 minutes till 02/12/2026 19:55:57
+2026-02-12T19:55:57.6868463Z Site: stainviz-app-9655 is unblocked.
+2026-02-12T19:57:52.5682287Z Container start method called.
+2026-02-12T19:57:52.5975800Z Establishing network.
+2026-02-12T19:57:52.5986264Z Pulling image: stainvizacr9655.azurecr.io/stainviz-backend:latest.
+2026-02-12T19:57:52.9222934Z Container is starting.
+2026-02-12T19:57:52.9235243Z Establishing user namespace if not established already.
+2026-02-12T19:57:52.9245650Z Establishing network if not established already.
+2026-02-12T19:57:52.9343689Z Mounting volumes.
+2026-02-12T19:57:52.9527578Z Nested mountpoint volatile/logs
+2026-02-12T19:57:52.9728441Z Nested mountpoint 
+2026-02-12T19:57:53.1452858Z Creating container.
+2026-02-12T19:57:53.1540339Z Creating pipes for streaming container io.
+2026-02-12T19:57:53.1542889Z Creating stdout named pipe at /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stdout_9f89eb2a9a084a81ac5104376dc69552.
+2026-02-12T19:57:53.1545406Z Successfully created stdout named pipe at: /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stdout_9f89eb2a9a084a81ac5104376dc69552.
+2026-02-12T19:57:53.1550321Z Opening named pipe /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stdout_9f89eb2a9a084a81ac5104376dc69552 for reading in non-blocking mode.
+2026-02-12T19:57:53.1635401Z Successfully opened named pipe: /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stdout_9f89eb2a9a084a81ac5104376dc69552.
+2026-02-12T19:57:53.1637055Z Successfully removed non-blocking flag from /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stdout_9f89eb2a9a084a81ac5104376dc69552.
+2026-02-12T19:57:53.1638281Z Creating stderr named pipe at /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stderr_3f96eedcf6a84194a0d7fd96f0ac619c.
+2026-02-12T19:57:53.1641363Z Successfully created stderr named pipe at: /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stderr_3f96eedcf6a84194a0d7fd96f0ac619c.
+2026-02-12T19:57:53.1642512Z Opening named pipe /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stderr_3f96eedcf6a84194a0d7fd96f0ac619c for reading in non-blocking mode.
+2026-02-12T19:57:53.1644344Z Successfully opened named pipe: /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stderr_3f96eedcf6a84194a0d7fd96f0ac619c.
+2026-02-12T19:57:53.1645427Z Successfully removed non-blocking flag from /podr/container/pipe/6beed4f5a381_stainviz-app-9655/stderr_3f96eedcf6a84194a0d7fd96f0ac619c.
+2026-02-12T19:57:53.1646643Z Creating container with image: stainvizacr9655.azurecr.io/stainviz-backend:latest from registry: stainvizacr9655.azurecr.io and fully qualified image name: stainvizacr9655.azurecr.io/stainviz-backend:latest
+2026-02-12T19:57:54.0176794Z Starting container: 6beed4f5a381_stainviz-app-9655.
+2026-02-12T19:57:54.1406096Z Starting watchers and probes.
+2026-02-12T19:57:54.1414315Z Starting metrics collection.
+2026-02-12T19:57:54.1416402Z Container is running.
+2026-02-12T19:57:54.3042568Z Container start method finished after 1733 ms.
+2026-02-12T19:57:54.3637844Z Container has finished running with exit code: 255.
+2026-02-12T19:57:54.3640254Z Container is terminating. Grace period: 5 seconds.
+2026-02-12T19:57:54.3645947Z Stop and delete container. Retry count = 0
+2026-02-12T19:57:54.3647274Z Stopping container: 6beed4f5a381_stainviz-app-9655.
+2026-02-12T19:57:54.5141480Z Deleting container: 6beed4f5a381_stainviz-app-9655. Retry count = 0
+2026-02-12T19:57:54.8215791Z Container spec TerminationMessagePolicy  path 
+2026-02-12T19:57:54.8226882Z Container is terminated. Total time elapsed: 457 ms.
+2026-02-12T19:57:54.8309473Z Site container: stainviz-app-9655 terminated during site startup.
+2026-02-12T19:57:54.8319544Z Site startup probe failed after 0.5190242 seconds.
+2026-02-12T19:57:55.0937419Z Failed to start site. Revert by stopping site.
+2026-02-12T19:57:55.1025143Z Site: stainviz-app-9655 stopped.
