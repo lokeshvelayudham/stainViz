@@ -55,7 +55,7 @@ export default function ISCTLanding() {
 
             <h1 className="text-5xl md:text-8xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 leading-[1.1] pb-2 drop-shadow-sm">
                 The Future of <br />
-                <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">Virtual Staining</span>
+                <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">Staining</span>
             </h1>
             
             <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
@@ -65,7 +65,7 @@ export default function ISCTLanding() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6">
                 <Link href="/app" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-8 font-medium text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-indigo-500/25">
-                    <span className="mr-2">Try Stain</span>
+                    <span className="mr-2">Try StainViz</span>
                     <ArrowLeft className="w-4 h-4 rotate-180 transition-transform group-hover:translate-x-1" />
                     <div className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 transition-opacity group-hover:opacity-20" />
                 </Link>
@@ -92,8 +92,8 @@ export default function ISCTLanding() {
                     
                     {!submitted ? (
                         <form onSubmit={handleSubmit} className="space-y-4 relative z-10 text-left">
-                            <h3 className="text-xl font-semibold mb-2">Join the Waitlist</h3>
-                            <p className="text-sm text-muted-foreground mb-6">Get early API access and product updates.</p>
+                            <h3 className="text-xl font-semibold mb-2 text-center">Join the Waitlist</h3>
+                            <p className="text-sm text-muted-foreground mb-6 text-center">Get early API access and product updates.</p>
                             
                             <div className="space-y-1">
                                 <label className="text-xs font-medium text-muted-foreground ml-1">Full Name</label>
@@ -206,7 +206,7 @@ export default function ISCTLanding() {
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-24 text-left">
                 {[
-                    { title: 'Bi-Directional', desc: 'Convert Brightfield ↔ H&E with a single click using CycleGAN.', icon: <ArrowLeft className="w-5 h-5 rotate-45" /> },
+                    { title: 'Bi-Directional', desc: <span>Convert Brightfield ↔ H&E with a single click using HybridGAN<sup>tm</sup>.</span>, icon: <ArrowLeft className="w-5 h-5 rotate-45" /> },
                     { title: 'Zero Stain Costs', desc: 'Generate virtual stains instantly without chemical reagents.', icon: <Sparkles className="w-5 h-5" /> },
                     { title: 'Secure & Private', desc: 'Processing runs in isolated containers. Your data is never trained on.', icon: <CheckCircle className="w-5 h-5" /> }
                 ].map((feature, i) => (

@@ -123,7 +123,7 @@ export function Upload({ onFileSelect, isProcessing, direction, onDirectionChang
                         </span>
                     </div>
                     <div className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-semibold">
-                        CycleGAN v1.0
+                        HybridGAN v1.0
                     </div>
                 </div>
             )}
