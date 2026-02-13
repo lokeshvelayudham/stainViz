@@ -25,8 +25,9 @@ export default function ISCTLanding() {
       {/* Navigation */}
       <nav className="p-6 flex justify-between items-center max-w-7xl mx-auto w-full">
         <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold">
-              S
+            <div className="relative w-8 h-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/stainViz.png" alt="StainViz Logo" className="object-contain" />
             </div>
             <span className="font-semibold text-lg tracking-tight">StainViz</span>
         </div>

@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StainViz - AI Virtual Staining",
   description: "Convert Brightfield to H&E instantly with HybridGAN technology.",
+  icons: {
+    icon: '/stainViz.png',
+  },
 };
 
 export default function RootLayout({

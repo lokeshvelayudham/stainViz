@@ -103,7 +103,11 @@ export default function Home() {
               <Menu className="w-5 h-5" />
           </button>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+             <div className="relative w-8 h-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/stainViz.png" alt="StainViz Logo" className="object-contain" />
+            </div>
             <span className="text-xl font-medium tracking-tight bg-clip-text text-transparent bg-[image:var(--image-gemini-gradient)]">
                 StainViz
             </span>
