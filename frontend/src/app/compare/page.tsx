@@ -52,23 +52,23 @@ export default function ComparePage() {
         
         <div className="relative z-10 max-w-5xl w-full flex flex-col items-center space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
-          <div className="text-center space-y-4">
+          {/* <div className="text-center space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
                 Evaluate <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">StainViz</span> Accuracy
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                 Drag the slider to compare the authentic ground truth against our CycleGAN AI generated virtual H&E stain.
               </p>
-          </div>
+          </div> */}
 
           {/* Labels */}
           <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-4 md:px-0">
              <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full backdrop-blur-md">
                  <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                 <span className="text-sm font-semibold text-blue-400 uppercase tracking-widest text-[10px]">Ground Truth</span>
+                 <span className="text-sm font-semibold text-blue-400 uppercase tracking-widest text-[10px]">AI Inferred</span>
              </div>
              <div className="flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-4 py-1.5 rounded-full backdrop-blur-md">
-                 <span className="text-sm font-semibold text-purple-400 uppercase tracking-widest text-[10px]">AI Inferred</span>
+                 <span className="text-sm font-semibold text-purple-400 uppercase tracking-widest text-[10px]">Ground Truth</span>
                  <div className="w-2 h-2 rounded-full bg-purple-500" />
              </div>
           </div>
