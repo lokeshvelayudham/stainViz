@@ -1,12 +1,29 @@
 'use client';
 
-import { useState, useRef, MouseEvent, TouchEvent } from 'react';
+import { useState, useRef, MouseEvent, TouchEvent, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, MoveHorizontal, Sparkles } from 'lucide-react';
+import { ArrowLeft, MoveHorizontal, Sparkles, CheckSquare, Square } from 'lucide-react';
+
+type ImageOption = 'bf' | 'ai' | 'gt';
+
+interface ImageConfig {
+  id: ImageOption;
+  label: string;
+  src: string;
+  color: string;
+}
+
+const IMAGES: ImageConfig[] = [
+  { id: 'bf', label: 'Brightfield Input', src: '/bf.png', color: 'text-zinc-400' },
+  { id: 'ai', label: 'AI Inferred', src: '/2.png', color: 'text-blue-400' },
+  { id: 'gt', label: 'Ground Truth', src: '/1.png', color: 'text-purple-400' },
+];
 
 export default function ComparePage() {
   const [sliderPosition, setSliderPosition] = useState(50);
+  const [selectedImages, setSelectedImages] = useState<ImageOption[]>(['bf', 'ai']); // Select first two by default
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (clientX: number) => {
@@ -18,13 +35,40 @@ export default function ComparePage() {
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (e.buttons !== 1) return; // Only if mouse is pressed
+    if (e.buttons !== 1) return;
     handleMove(e.clientX);
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     handleMove(e.touches[0].clientX);
   };
+
+  const toggleImageSelection = (id: ImageOption) => {
+    setSelectedImages((prev) => {
+      let newSelection: ImageOption[];
+      
+      // If already selected, we can't deselect if it leaves us with less than 2
+      if (prev.includes(id)) {
+        if (prev.length <= 2) return prev; // Must have exactly 2 selected
+        newSelection = prev.filter(img => img !== id);
+      } else {
+        // If adding, and we already have 2, replace the oldest one (the first one)
+        newSelection = prev.length >= 2 ? [prev[1], id] : [...prev, id];
+      }
+      
+      // If exactly 2 are selected and one is 'gt' (Ground Truth), ensure 'gt' is the second item (right side)
+      if (newSelection.length === 2 && newSelection.includes('gt')) {
+          newSelection = newSelection.sort((a, b) => a === 'gt' ? 1 : b === 'gt' ? -1 : 0);
+      }
+      
+      return newSelection;
+    });
+    setSliderPosition(50); // Reset slider on change
+  };
+
+  // Get configuration for the currently selected left and right images
+  const leftImage = IMAGES.find(img => img.id === selectedImages[0]);
+  const rightImage = IMAGES.find(img => img.id === selectedImages[1]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20">
@@ -50,88 +94,130 @@ export default function ComparePage() {
         <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
         
-        <div className="relative z-10 max-w-5xl w-full flex flex-col items-center space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="relative z-10 max-w-5xl w-full flex flex-col items-center space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
-          {/* <div className="text-center space-y-4">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Evaluate <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">StainViz</span> Accuracy
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Drag the slider to compare the authentic ground truth against our CycleGAN AI generated virtual H&E stain.
-              </p>
-          </div> */}
+          {/* Checkbox Selector */}
+          <div className="flex flex-col items-center justify-center gap-4 bg-secondary/20 p-5 rounded-2xl border border-white/5 backdrop-blur-sm w-full max-w-3xl mx-auto">
+             <div className="text-sm font-medium text-muted-foreground w-full text-center">Select any 2 images to compare:</div>
+             
+             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                {IMAGES.map((img) => {
+                    const isSelected = selectedImages.includes(img.id);
+                    // Determine which side it's on if selected
+                    let sideLabel = '';
+                    if (selectedImages[0] === img.id) sideLabel = 'Left';
+                    if (selectedImages[1] === img.id) sideLabel = 'Right';
 
-          {/* Labels */}
-          <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-4 md:px-0">
-             <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full backdrop-blur-md">
-                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                 <span className="text-sm font-semibold text-blue-400 uppercase tracking-widest text-[10px]">AI Inferred</span>
+                    return (
+                        <button
+                            key={img.id}
+                            onClick={() => toggleImageSelection(img.id)}
+                            className={`flex flex-col items-start gap-2 p-3 rounded-xl border text-left transition-all duration-300
+                                ${isSelected 
+                                    ? 'bg-black/40 border-primary/50 shadow-md transform scale-[1.02]' 
+                                    : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:bg-black/30'}`}
+                        >
+                            <div className="flex items-center justify-between w-full">
+                                <span className={`text-sm font-semibold tracking-wide ${img.color}`}>{img.label}</span>
+                                {isSelected ? (
+                                    <CheckSquare className={`w-5 h-5 ${img.color}`} />
+                                ) : (
+                                    <Square className="w-5 h-5 text-muted-foreground" />
+                                )}
+                            </div>
+                            {isSelected && (
+                                <div className="text-[10px] uppercase font-bold tracking-widest bg-primary/20 text-primary px-2 py-0.5 rounded-full mt-1">
+                                    Slider: {sideLabel}
+                                </div>
+                            )}
+                        </button>
+                    );
+                })}
              </div>
-             <div className="flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-4 py-1.5 rounded-full backdrop-blur-md">
-                 <span className="text-sm font-semibold text-purple-400 uppercase tracking-widest text-[10px]">Ground Truth</span>
-                 <div className="w-2 h-2 rounded-full bg-purple-500" />
-             </div>
           </div>
 
-          {/* Comparison Slider Container */}
-          <div className="relative group w-full max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-black/40 backdrop-blur-sm p-2 transition-all duration-500 hover:shadow-indigo-500/20 hover:border-indigo-500/30">
-            <div 
-              ref={containerRef}
-              className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden cursor-ew-resize select-none bg-black"
-              onMouseMove={handleMouseMove}
-              onTouchMove={handleTouchMove}
-              onMouseDown={(e) => handleMove(e.clientX)}
-            >
-              {/* Ground Truth Image (Base) */}
-              <div className="absolute inset-0">
-                <Image
-                  src="/1.png"
-                  alt="Ground Truth"
-                  fill
-                  className="object-contain pointer-events-none"
-                  unoptimized
-                  draggable={false}
-                />
-              </div>
-
-              {/* AI Inferred Image (Overlay) */}
-              <div 
-                className="absolute inset-0"
-                style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
-              >
-                <div className="absolute inset-0">
-                  <Image
-                    src="/2.png"
-                    alt="AI Inferred"
-                    fill
-                    className="object-contain pointer-events-none"
-                    unoptimized
-                    draggable={false}
-                  />
+          {/* Comparison Area (Only show if we have exactly left and right) */}
+          {leftImage && rightImage && (
+              <>
+                {/* Labels Header */}
+                <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-4 md:px-0">
+                    <div className="flex items-center gap-2 bg-black/30 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
+                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${leftImage.color}`}>
+                            {leftImage.label}
+                        </span>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 bg-black/30 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
+                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${rightImage.color}`}>
+                            {rightImage.label}
+                        </span>
+                    </div>
                 </div>
-              </div>
 
-              {/* Enhanced Slider Handle */}
-              <div 
-                className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white to-transparent shadow-[0_0_15px_rgba(255,255,255,0.7)] z-10 transition-transform duration-75"
-                style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
-              >
-                {/* Center knob */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center shadow-2xl border border-white/40 ring-4 ring-black/10 transition-transform group-hover:scale-110">
-                  <MoveHorizontal className="w-5 h-5 drop-shadow-md" />
+                {/* Comparison Slider Container */}
+                <div className="relative group w-full max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-black/40 backdrop-blur-sm p-2 transition-all duration-500 hover:shadow-indigo-500/20 hover:border-indigo-500/30">
+                    <div 
+                    ref={containerRef}
+                    className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden cursor-ew-resize select-none bg-black"
+                    onMouseMove={handleMouseMove}
+                    onTouchMove={handleTouchMove}
+                    onMouseDown={(e) => handleMove(e.clientX)}
+                    onTouchStart={(e) => handleMove(e.touches[0].clientX)}
+                    >
+                    {/* Left Image (Base) */}
+                    <div className="absolute inset-0">
+                        <Image
+                        src={leftImage.src}
+                        alt="Left Compare Image"
+                        fill
+                        className="object-contain pointer-events-none"
+                        unoptimized
+                        draggable={false}
+                        />
+                    </div>
+
+                    {/* Right Image (Overlay) */}
+                    <div 
+                        className="absolute inset-0"
+                        style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
+                    >
+                        <div className="absolute inset-0">
+                        <Image
+                            src={rightImage.src}
+                            alt="Right Compare Image"
+                            fill
+                            className="object-contain pointer-events-none"
+                            unoptimized
+                            draggable={false}
+                        />
+                        </div>
+                    </div>
+
+                    {/* Enhanced Slider Handle */}
+                    <div 
+                        className="absolute top-0 bottom-0 w-[2px] z-10"
+                        style={{ 
+                            left: `${sliderPosition}%`, 
+                            transform: 'translateX(-50%)',
+                            background: `linear-gradient(to bottom, transparent, #818cf8, transparent)`,
+                            boxShadow: '0 0 15px rgba(129,140,248,0.7)'
+                        }}
+                    >
+                        {/* Center knob */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center shadow-2xl border border-white/40 ring-4 ring-black/10 transition-transform group-hover:scale-110 group-active:scale-95">
+                        <MoveHorizontal className={`w-5 h-5 drop-shadow-md text-indigo-200`} />
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                {/* Sparkle effects on handle */}
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-1 h-8 bg-white/50 blur-[2px]" />
-                <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-1 h-8 bg-white/50 blur-[2px]" />
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-xs text-muted-foreground/60 flex items-center gap-2 bg-secondary/30 px-4 py-2 rounded-full border border-border/50">
-             <MoveHorizontal className="w-4 h-4" /> 
-             Interactive comparison interface. Click and drag to evaluate model performance.
-          </div>
-          
+                
+                <div className="text-xs text-muted-foreground/60 flex items-center gap-2 bg-secondary/30 px-4 py-2 rounded-full border border-border/50">
+                    <MoveHorizontal className="w-4 h-4" /> 
+                    Drag slider to compare selected images.
+                </div>
+              </>
+          )}
+
         </div>
       </main>
     </div>
