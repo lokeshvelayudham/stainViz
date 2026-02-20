@@ -45,30 +45,28 @@ export default function ComparePage() {
 
   const toggleImageSelection = (id: ImageOption) => {
     setSelectedImages((prev) => {
-      let newSelection: ImageOption[];
-      
       // If already selected, we can't deselect if it leaves us with less than 2
       if (prev.includes(id)) {
         if (prev.length <= 2) return prev; // Must have exactly 2 selected
-        newSelection = prev.filter(img => img !== id);
-      } else {
-        // If adding, and we already have 2, replace the oldest one (the first one)
-        newSelection = prev.length >= 2 ? [prev[1], id] : [...prev, id];
+        return prev.filter(img => img !== id);
       }
       
-      // Ensure specific layering order: GT (back) -> AI (middle) -> BF (front)
-      // selectedImages[0] is rendered at the back, selectedImages[1] is on top.
-      const order = { gt: 0, ai: 1, bf: 2 };
-      newSelection = newSelection.sort((a, b) => order[a] - order[b]);
-      
-      return newSelection;
+      // If adding a new image and we already have 2, keep the most recent one (index 1) and the new one
+      return prev.length >= 2 ? [prev[1], id] : [...prev, id];
     });
     setSliderPosition(50); // Reset slider on change
   };
 
-  // Get configuration for the currently selected left and right images
-  const leftImage = IMAGES.find(img => img.id === selectedImages[0]);
-  const rightImage = IMAGES.find(img => img.id === selectedImages[1]);
+  // Determine rendering order: GT (back layer) -> AI (middle) -> BF (front overlay)
+  const sortedSelection = [...selectedImages].sort((a, b) => {
+    const layerPriority = { gt: 0, ai: 1, bf: 2 };
+    return layerPriority[a] - layerPriority[b];
+  });
+
+  // Base image (rendered behind)
+  const leftImage = IMAGES.find(img => img.id === sortedSelection[0]);
+  // Overlay image (rendered on top, clipped to left side of slider)
+  const rightImage = IMAGES.find(img => img.id === sortedSelection[1]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20">
@@ -103,10 +101,10 @@ export default function ComparePage() {
              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
                 {IMAGES.map((img) => {
                     const isSelected = selectedImages.includes(img.id);
-                    // Determine which side it's on if selected
+                    // Determine which side it's visually on the slider based on clip-path
                     let sideLabel = '';
-                    if (selectedImages[0] === img.id) sideLabel = 'Left';
-                    if (selectedImages[1] === img.id) sideLabel = 'Right';
+                    if (sortedSelection[1] === img.id) sideLabel = 'Left Side';  // Overlay is clipped 0 to X
+                    if (sortedSelection[0] === img.id) sideLabel = 'Right Side'; // Base is visible X to 100%
 
                     return (
                         <button
@@ -139,17 +137,17 @@ export default function ComparePage() {
           {/* Comparison Area (Only show if we have exactly left and right) */}
           {leftImage && rightImage && (
               <>
-                {/* Labels Header */}
+                {/* Labels Header (Matched to visual slider layout) */}
                 <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-4 md:px-0">
                     <div className="flex items-center gap-2 bg-black/30 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
-                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${leftImage.color}`}>
-                            {leftImage.label}
+                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${rightImage.color}`}>
+                            {rightImage.label}
                         </span>
                     </div>
                     
                     <div className="flex items-center gap-2 bg-black/30 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
-                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${rightImage.color}`}>
-                            {rightImage.label}
+                        <span className={`text-sm font-semibold uppercase tracking-widest text-[10px] ${leftImage.color}`}>
+                            {leftImage.label}
                         </span>
                     </div>
                 </div>
