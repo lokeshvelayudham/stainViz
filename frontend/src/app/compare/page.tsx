@@ -56,10 +56,10 @@ export default function ComparePage() {
         newSelection = prev.length >= 2 ? [prev[1], id] : [...prev, id];
       }
       
-      // If exactly 2 are selected and one is 'gt' (Ground Truth), ensure 'gt' is the second item (right side)
-      if (newSelection.length === 2 && newSelection.includes('gt')) {
-          newSelection = newSelection.sort((a, b) => a === 'gt' ? 1 : b === 'gt' ? -1 : 0);
-      }
+      // Ensure specific layering order: GT (back) -> AI (middle) -> BF (front)
+      // selectedImages[0] is rendered at the back, selectedImages[1] is on top.
+      const order = { gt: 0, ai: 1, bf: 2 };
+      newSelection = newSelection.sort((a, b) => order[a] - order[b]);
       
       return newSelection;
     });
