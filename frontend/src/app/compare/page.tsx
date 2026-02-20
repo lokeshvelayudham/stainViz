@@ -22,7 +22,7 @@ const IMAGES: ImageConfig[] = [
 
 export default function ComparePage() {
   const [sliderPosition, setSliderPosition] = useState(50);
-  const [selectedImages, setSelectedImages] = useState<ImageOption[]>(['bf', 'ai']); // Select first two by default
+  const [selectedImages, setSelectedImages] = useState<ImageOption[]>(['gt', 'ai']); // Default: AI vs GT
 
   const containerRef = useRef<HTMLDivElement>(null);
 
