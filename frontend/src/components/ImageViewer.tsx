@@ -26,6 +26,7 @@ export function ImageViewer({ bfUrl, heUrl }: ImageViewerProps) {
               alt="Brightfield Input" 
               fill 
               className="object-contain p-2"
+              unoptimized
             />
           </div>
         </div>
@@ -48,6 +49,7 @@ export function ImageViewer({ bfUrl, heUrl }: ImageViewerProps) {
                       alt="Virtual H&E Output" 
                       fill 
                       className="object-contain p-2"
+                      unoptimized
                   />
               ) : (
                   <div className="flex flex-col items-center gap-4 text-muted-foreground/50">

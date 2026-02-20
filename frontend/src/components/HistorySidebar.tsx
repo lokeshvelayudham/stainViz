@@ -62,7 +62,7 @@ export function HistorySidebar({ history, onSelect, onNewChat, isOpen }: History
                     className="w-full flex items-center gap-3 p-3 rounded-full hover:bg-secondary/50 cursor-pointer transition-colors group text-left"
                 >
                     <div className="relative w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border border-border/50">
-                        <Image src={item.heUrl} alt="Result" fill className="object-cover" />
+                        <Image src={item.heUrl} alt="Result" fill className="object-cover" unoptimized />
                     </div>
                     <div className="flex-1 overflow-hidden">
                         <p className="text-sm text-foreground truncate w-full">Stain Result</p>
@@ -79,7 +79,7 @@ export function HistorySidebar({ history, onSelect, onNewChat, isOpen }: History
                     title={item.timestamp.toLocaleTimeString()}
                 >
                     <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 border border-border/50">
-                        <Image src={item.heUrl} alt="Result" fill className="object-cover" />
+                        <Image src={item.heUrl} alt="Result" fill className="object-cover" unoptimized />
                     </div>
                 </button>
               )

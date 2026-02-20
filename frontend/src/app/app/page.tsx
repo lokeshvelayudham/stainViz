@@ -22,6 +22,30 @@ export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const [direction, setDirection] = useState<"AtoB" | "BtoA">("AtoB");
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
+  React.useEffect(() => {
+    fetchHistory();
+  }, []);
+
+  const fetchHistory = async () => {
+    try {
+        const res = await fetch(`${apiUrl}/history`);
+        if (res.ok) {
+            const data = await res.json();
+            // Map API response to HistoryItem
+            const mapped = data.map((item: any) => ({
+                id: item.id.toString(),
+                bfUrl: `${apiUrl}${item.bf_path}`,
+                heUrl: `${apiUrl}${item.he_path}`,
+                timestamp: new Date(item.timestamp)
+            }));
+            setHistory(mapped);
+        }
+    } catch (err) {
+        console.error("Failed to fetch history", err);
+    }
+  };
 
   const handleFileSelect = async (file: File) => {
     // Reset state for new upload
@@ -36,7 +60,6 @@ export default function Home() {
       formData.append('file', file);
       formData.append('direction', direction); 
 
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
       const response = await fetch(`${apiUrl}/generate`, {
         method: 'POST',
         body: formData,
@@ -46,17 +69,14 @@ export default function Home() {
         throw new Error('Failed to generate stain');
       }
 
-      const blob = await response.blob();
-      const resultObjectUrl = URL.createObjectURL(blob);
+      const data = await response.json();
+      
+      // Data contains relative paths e.g. /data/images/...
+      const resultObjectUrl = `${apiUrl}${data.he_path}`;
       setResultUrl(resultObjectUrl);
 
-      const newItem: HistoryItem = {
-        id: Date.now().toString(),
-        bfUrl: objectUrl,
-        heUrl: resultObjectUrl,
-        timestamp: new Date()
-      };
-      setHistory(prev => [newItem, ...prev]);
+      // Refresh history to get the new item with ID
+      fetchHistory();
 
     } catch (error) {
       console.error("Error generating stain:", error);
