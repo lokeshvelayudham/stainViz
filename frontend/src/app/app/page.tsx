@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Upload } from '../../components/Upload';
 import { ImageViewer } from '../../components/ImageViewer';
 import { HistorySidebar } from '../../components/HistorySidebar';
-import { Menu, Sparkles, MessageSquarePlus } from 'lucide-react';
+import { Menu, Sparkles } from 'lucide-react';
 
 interface HistoryItem {
   id: string;
@@ -34,7 +34,7 @@ export default function Home() {
         if (res.ok) {
             const data = await res.json();
             // Map API response to HistoryItem
-            const mapped = data.map((item: any) => ({
+            const mapped = data.map((item: { id: number | string; bf_path: string; he_path: string; timestamp: string }) => ({
                 id: item.id.toString(),
                 bfUrl: `${apiUrl}${item.bf_path}`,
                 heUrl: `${apiUrl}${item.he_path}`,

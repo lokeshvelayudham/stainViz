@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, MouseEvent, TouchEvent, useEffect } from 'react';
+import { useState, useRef, MouseEvent, TouchEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, MoveHorizontal, Sparkles, CheckSquare, Square } from 'lucide-react';

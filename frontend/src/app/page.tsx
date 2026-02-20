@@ -144,9 +144,9 @@ export default function ISCTLanding() {
                             <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-2">
                                 <CheckCircle className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold">You're on the list!</h3>
+                            <h3 className="text-2xl font-bold">You&apos;re on the list!</h3>
                             <p className="text-muted-foreground text-center">
-                                Thank you for your interest. We'll be in touch with updates leading up to ISCT 2026.
+                                Thank you for your interest. We&apos;ll be in touch with updates leading up to ISCT 2026.
                             </p>
                             <button 
                                 onClick={() => setSubmitted(false)}
