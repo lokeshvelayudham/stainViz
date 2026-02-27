@@ -22,21 +22,12 @@ git push -u origin main
 
 ---
 
-## 2. Deploy Backend (Render)
-1.  Go to the [Render Dashboard](https://dashboard.render.com/).
-2.  Click **New +** -> **Web Service**.
-3.  Connect your GitHub repository.
-4.  Configure the service:
-    *   **Name**: `stainviz-backend`
-    *   **Runtime**: **Docker**
-    *   **Region**: Pick one close you.
-    *   **Branch**: `main`
-    *   **Root Directory**: Leave blank (default `.`)
-    *   **Dockerfile Path**: `backend/Dockerfile` (CRITICAL: Set this or build will fail)
-5.  **Environment Variables**:
-    *   Add `MODEL_DIR` = `/app/model` (This ensures the code looks in the right place, assuming you committed the `model/` folder).
-6.  Click **Create Web Service**.
-7.  Wait for the build to finish. Once live, copy your backend URL (e.g., `https://stainviz-backend.onrender.com`).
+## 2. Deploy Backend (Hugging Face Spaces - FREE & 16GB RAM)
+Because the ML models require 1-2GB of RAM, traditional free tiers (like Render) will crash with Out Of Memory errors. **Hugging Face Spaces** provides 16GB RAM perfectly suited for our Docker container.
+
+Please refer to the detailed guide: **[HF_SPACES_DEPLOYMENT.md](./HF_SPACES_DEPLOYMENT.md)** for step-by-step instructions on deploying the backend container to Hugging Face.
+
+Once deployed on Hugging Face, copy your Space's Direct URL for the next step.
 
 ---
 
