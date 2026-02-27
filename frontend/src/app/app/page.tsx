@@ -26,6 +26,23 @@ export default function Home() {
 
   React.useEffect(() => {
     fetchHistory();
+
+    // Poll for backend HF logs every 10 seconds and log to console
+    const logInterval = setInterval(async () => {
+      try {
+        const res = await fetch('/api/logs');
+        if (res.ok) {
+           const logData = await res.json();
+           if (logData.logs) {
+              console.log("[HF Backend Logs]:\n", logData.logs);
+           }
+        }
+      } catch (e) {
+         console.warn("Failed to fetch backend logs", e);
+      }
+    }, 10000);
+
+    return () => clearInterval(logInterval);
   }, []);
 
   const fetchHistory = async () => {
