@@ -41,7 +41,9 @@ async def startup_event():
     global model_inference
     try:
         # Checkpoints directory
-        checkpoints_dir = os.environ.get("MODEL_DIR", "/Users/loki/DEV/AI/stainViz/model")
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        default_model_dir = os.path.join(base_dir, "model")
+        checkpoints_dir = os.environ.get("MODEL_DIR", default_model_dir)
         print(f"Loading models from: {checkpoints_dir}")
         model_inference = CycleGANInference(checkpoints_dir)
         print("✅ StainViz Model initialized and ready.")
