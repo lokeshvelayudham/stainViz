@@ -56,7 +56,7 @@ export default function Home() {
                 id: item.id.toString(),
                 bfUrl: `${apiUrl}${item.bf_path}`,
                 heUrl: `${apiUrl}${item.he_path}`,
-                timestamp: new Date(item.timestamp)
+                timestamp: new Date(item.timestamp.endsWith('Z') ? item.timestamp : item.timestamp + 'Z')
             }));
             setHistory(mapped);
         }
