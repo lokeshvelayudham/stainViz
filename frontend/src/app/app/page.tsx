@@ -30,6 +30,7 @@ export default function Home() {
 
   const fetchHistory = async () => {
     try {
+        console.log(`[StainViz] Fetching history from: ${apiUrl}/history`);
         const res = await fetch(`${apiUrl}/history`);
         if (res.ok) {
             const data = await res.json();
@@ -60,6 +61,7 @@ export default function Home() {
       formData.append('file', file);
       formData.append('direction', direction); 
 
+      console.log(`[StainViz] Generating stain using backend: ${apiUrl}/generate`);
       const response = await fetch(`${apiUrl}/generate`, {
         method: 'POST',
         body: formData,

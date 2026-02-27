@@ -25,7 +25,7 @@ pip install -r requirements.txt
 # Run Server (Helper Script)
 ./start_backend.sh
 ```
-*The API will run at `http://localhost:8000`*
+*The API will run at `https://low-keyy-stainviz-backend.hf.space`*
 
 ### 2. Frontend (UI)
 The frontend provides the user interface.
@@ -38,11 +38,10 @@ npm install
 # Run Dev Server
 npm run dev
 ```
-*The UI will be available at `http://localhost:3000`*
+*The UI will be available at `https://stain-viz.vercel.app/`*
 
 ## Features
 - **Upload**: Drag & drop Brightfield images.
 - **Inference**: Efficient patching and CycleGAN inference.
 - **Stitching**: Smooth blending to recombine patches.
 - **History**: Sidebar tracks your generation history.
-ennnn

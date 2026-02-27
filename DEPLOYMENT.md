@@ -39,7 +39,7 @@ Once deployed on Hugging Face, copy your Space's Direct URL for the next step.
     *   **Framework Preset**: Next.js (should detect automatically).
     *   **Root Directory**: `frontend` (Important! The Next.js app is in this subfolder).
 5.  **Environment Variables**:
-    *   Add `NEXT_PUBLIC_API_URL` = `https://stainviz-backend.onrender.com` (The URL from step 2).
+    *   Add `NEXT_PUBLIC_API_URL` = `https://low-keyy-stainviz-backend.hf.space` (The URL from step 2).
 6.  Click **Deploy**.
 
 ## 4. Final Verification
