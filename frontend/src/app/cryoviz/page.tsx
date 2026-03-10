@@ -320,11 +320,11 @@ export default function CryoVizDemo() {
                     <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none">
                       <div className="space-y-2">
                          <div className="flex items-center gap-2 animate-in slide-in-from-left fade-in delay-500">
-                           <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+                           <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.6)]" />
                            <span className="text-sm font-medium drop-shadow-md">Lung</span>
                          </div>
                          <div className="flex items-center gap-2 animate-in slide-in-from-left fade-in delay-700">
-                           <div className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.6)]" />
+                           <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
                            <span className="text-sm font-medium drop-shadow-md">Liver</span>
                          </div>
                          <div className="flex items-center gap-2 animate-in slide-in-from-left fade-in delay-1000">
