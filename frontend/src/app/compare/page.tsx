@@ -5,26 +5,86 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, MoveHorizontal, Sparkles, CheckSquare, Square } from 'lucide-react';
 
-type ImageOption = 'bf' | 'ai' | 'gt';
+type DatasetId = 'bf-he' | 'bf-cd56' | 'fibronectin-dapi';
+type ImageOptionId = string;
 
 interface ImageConfig {
-  id: ImageOption;
+  id: ImageOptionId;
   label: string;
   src: string;
   color: string;
 }
 
-const IMAGES: ImageConfig[] = [
-  { id: 'bf', label: 'Brightfield Input', src: '/bf.png', color: 'text-zinc-400' },
-  { id: 'ai', label: 'AI Inferred', src: '/2.png', color: 'text-blue-400' },
-  { id: 'gt', label: 'Ground Truth', src: '/1.png', color: 'text-purple-400' },
-];
+interface DatasetConfig {
+  id: DatasetId;
+  title: string;
+  description: string;
+  images: ImageConfig[];
+  defaultSelection: ImageOptionId[];
+  layerPriority: Record<ImageOptionId, number>;
+}
+
+const DATASETS: Record<DatasetId, DatasetConfig> = {
+  'bf-he': {
+    id: 'bf-he',
+    title: 'Brightfield to H&E',
+    description: 'Select any 2 images to compare the brightfield input, AI inference, and H&E ground truth.',
+    images: [
+      { id: 'input', label: 'Brightfield Input', src: '/bf.png', color: 'text-zinc-400' },
+      { id: 'ai', label: 'AI Inferred H&E', src: '/2.png', color: 'text-blue-400' },
+      { id: 'gt', label: 'Ground Truth H&E', src: '/1.png', color: 'text-rose-400' },
+    ],
+    defaultSelection: ['gt', 'ai'],
+    layerPriority: {
+      gt: 0,
+      ai: 1,
+      input: 2,
+    },
+  },
+  'bf-cd56': {
+    id: 'bf-cd56',
+    title: 'Brightfield to CD56',
+    description: 'Compare the brightfield input directly against the CD56 target stain.',
+    images: [
+      { id: 'input', label: 'Brightfield Input', src: '/bf-cd56/bf.png', color: 'text-zinc-400' },
+      { id: 'target', label: 'CD56 Target', src: '/bf-cd56/cd56.png', color: 'text-emerald-400' },
+    ],
+    defaultSelection: ['target', 'input'],
+    layerPriority: {
+      target: 0,
+      input: 1,
+    },
+  },
+  'fibronectin-dapi': {
+    id: 'fibronectin-dapi',
+    title: 'Fibronectin to DAPI',
+    description: 'Select any 2 images to compare the fibronectin input, AI inference, and DAPI ground truth.',
+    images: [
+      { id: 'input', label: 'Fibronectin Input', src: '/fbi-dapi/input.png', color: 'text-amber-300' },
+      { id: 'ai', label: 'AI Inferred DAPI', src: '/fbi-dapi/ ai1.png', color: 'text-cyan-400' },
+      { id: 'gt', label: 'Ground Truth DAPI', src: '/fbi-dapi/gt1.png', color: 'text-fuchsia-400' },
+    ],
+    defaultSelection: ['gt', 'ai'],
+    layerPriority: {
+      gt: 0,
+      ai: 1,
+      input: 2,
+    },
+  },
+};
+
+const DATASET_ORDER: DatasetId[] = ['bf-he', 'bf-cd56', 'fibronectin-dapi'];
+const DEFAULT_DATASET_ID: DatasetId = 'bf-he';
+
+const getImageSrc = (src: string) => encodeURI(src);
 
 export default function ComparePage() {
+  const [datasetId, setDatasetId] = useState<DatasetId>(DEFAULT_DATASET_ID);
   const [sliderPosition, setSliderPosition] = useState(50);
-  const [selectedImages, setSelectedImages] = useState<ImageOption[]>(['gt', 'ai']); // Default: AI vs GT
+  const [selectedImages, setSelectedImages] = useState<ImageOptionId[]>(DATASETS[DEFAULT_DATASET_ID].defaultSelection);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const dataset = DATASETS[datasetId];
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return;
@@ -43,7 +103,13 @@ export default function ComparePage() {
     handleMove(e.touches[0].clientX);
   };
 
-  const toggleImageSelection = (id: ImageOption) => {
+  const handleDatasetChange = (nextDatasetId: DatasetId) => {
+    setDatasetId(nextDatasetId);
+    setSelectedImages(DATASETS[nextDatasetId].defaultSelection);
+    setSliderPosition(50);
+  };
+
+  const toggleImageSelection = (id: ImageOptionId) => {
     setSelectedImages((prev) => {
       // If already selected, we can't deselect if it leaves us with less than 2
       if (prev.includes(id)) {
@@ -57,16 +123,14 @@ export default function ComparePage() {
     setSliderPosition(50); // Reset slider on change
   };
 
-  // Determine rendering order: GT (back layer) -> AI (middle) -> BF (front overlay)
   const sortedSelection = [...selectedImages].sort((a, b) => {
-    const layerPriority = { gt: 0, ai: 1, bf: 2 };
-    return layerPriority[a] - layerPriority[b];
+    return (dataset.layerPriority[a] ?? Number.MAX_SAFE_INTEGER) - (dataset.layerPriority[b] ?? Number.MAX_SAFE_INTEGER);
   });
 
   // Base image (rendered behind)
-  const leftImage = IMAGES.find(img => img.id === sortedSelection[0]);
+  const leftImage = dataset.images.find(img => img.id === sortedSelection[0]);
   // Overlay image (rendered on top, clipped to left side of slider)
-  const rightImage = IMAGES.find(img => img.id === sortedSelection[1]);
+  const rightImage = dataset.images.find(img => img.id === sortedSelection[1]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20">
@@ -78,28 +142,54 @@ export default function ComparePage() {
         </Link>
         <div className="flex items-center space-x-2">
           <Sparkles className="w-5 h-5 text-indigo-500" />
-          <span className="font-semibold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+          <span className="font-semibold text-lg tracking-tight bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-indigo-500">
             Analysis
           </span>
         </div>
       </nav>
 
       {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      <main className="grow flex flex-col items-center justify-center p-6 relative overflow-hidden">
         
         {/* Decorative Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+        <div className="absolute top-[20%] left-[20%] w-125 h-125 bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[10%] right-[10%] w-100 h-100 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="relative z-10 max-w-5xl w-full flex flex-col items-center space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-4xl mx-auto">
+            {DATASET_ORDER.map((option) => {
+              const config = DATASETS[option];
+              const isActive = option === datasetId;
+
+              return (
+                <button
+                  key={option}
+                  onClick={() => handleDatasetChange(option)}
+                  className={`rounded-2xl border p-4 text-left transition-all duration-300 ${
+                    isActive
+                      ? 'bg-black/40 border-primary/50 shadow-lg shadow-indigo-500/10'
+                      : 'bg-black/20 border-white/10 hover:bg-black/30 hover:border-white/20'
+                  }`}
+                >
+                  <div className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground/60 mb-2">Dataset</div>
+                  <div className="text-sm font-semibold text-foreground">{config.title}</div>
+                  <p className="text-xs text-muted-foreground/80 mt-2 leading-relaxed">{config.description}</p>
+                </button>
+              );
+            })}
+          </div>
           
           {/* Checkbox Selector */}
           <div className="flex flex-col items-center justify-center gap-4 bg-secondary/20 p-5 rounded-2xl border border-white/5 backdrop-blur-sm w-full max-w-3xl mx-auto">
-             <div className="text-sm font-medium text-muted-foreground w-full text-center">Select any 2 images to compare:</div>
+             <div className="text-center space-y-1 w-full">
+                <div className="text-lg font-semibold text-foreground">{dataset.title}</div>
+                <div className="text-sm font-medium text-muted-foreground">{dataset.description}</div>
+             </div>
              
-             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
-                {IMAGES.map((img) => {
+             <div className={`grid gap-3 w-full ${dataset.images.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'}`}>
+                {dataset.images.map((img) => {
                     const isSelected = selectedImages.includes(img.id);
                     // Determine which side it's visually on the slider based on clip-path
                     let sideLabel = '';
@@ -156,7 +246,7 @@ export default function ComparePage() {
                 <div className="relative group w-full max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-black/40 backdrop-blur-sm p-2 transition-all duration-500 hover:shadow-indigo-500/20 hover:border-indigo-500/30">
                     <div 
                     ref={containerRef}
-                    className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden cursor-ew-resize select-none bg-black"
+                    className="relative w-full aspect-4/3 sm:aspect-video rounded-xl overflow-hidden cursor-ew-resize select-none bg-black"
                     onMouseMove={handleMouseMove}
                     onTouchMove={handleTouchMove}
                     onMouseDown={(e) => handleMove(e.clientX)}
@@ -165,8 +255,8 @@ export default function ComparePage() {
                     {/* Left Image (Base) */}
                     <div className="absolute inset-0">
                         <Image
-                        src={leftImage.src}
-                        alt="Left Compare Image"
+                      src={getImageSrc(leftImage.src)}
+                      alt={leftImage.label}
                         fill
                         className="object-contain pointer-events-none"
                         unoptimized
@@ -181,8 +271,8 @@ export default function ComparePage() {
                     >
                         <div className="absolute inset-0">
                         <Image
-                            src={rightImage.src}
-                            alt="Right Compare Image"
+                          src={getImageSrc(rightImage.src)}
+                          alt={rightImage.label}
                             fill
                             className="object-contain pointer-events-none"
                             unoptimized
@@ -193,7 +283,7 @@ export default function ComparePage() {
 
                     {/* Enhanced Slider Handle */}
                     <div 
-                        className="absolute top-0 bottom-0 w-[2px] z-10"
+                      className="absolute top-0 bottom-0 w-0.5 z-10"
                         style={{ 
                             left: `${sliderPosition}%`, 
                             transform: 'translateX(-50%)',
