@@ -15,8 +15,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StainViz - AI Virtual Staining",
   description: "Convert Brightfield to H&E instantly with HybridGAN technology.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "StainViz",
+  },
   icons: {
-    icon: '/stainViz.png',
+    icon: "/stainViz.png",
+    apple: "/pwa/icon-192.png",
   },
 };
 
